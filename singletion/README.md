@@ -1,4 +1,4 @@
-# Singletion
+# Singletion Pattern
 单例模式
 
 ## 概念
