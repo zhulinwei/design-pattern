@@ -15,6 +15,8 @@ TODO
 
 定义一个工厂类，根据传入的参数不同返回不同的实例，被创建的实例具有共同的父类或接口；
 
+
+#### 示例
 Java Sample
 
 ```java
@@ -102,11 +104,13 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
 }
 ```
 
+#### 类图
+
 从上述的Sample中我们可以观察到几个关键对象：抽象产品接口（IRuleConfigParser）、具体产品角色（JsonRuleConfigParser）和工厂角色（RuleConfigParserFactory），它们是简易工厂的重要组成部分。
 
-类图如下：
-
 ![](factory_1.jpg)
+
+#### 优化改进
 
 另外我们可以发现上述的Sample其实存在优化的空间，我们每次调用RuleConfigParserFactory的createParser时都要创建一个新的parser，实际上parser可以复用，为了节省内存和对象的时间，我们可以先将parser创建然后缓存起来，当调用createParser的时候直接从缓存中取出parser对象使用。
 
@@ -154,4 +158,6 @@ func NewRuleConfigParserFactory() *RuleConfigParserFactory {
    return factory
 }
 ```
-总结：简单工厂的代码实现中，有多出if分支，有违背开发原则，但在没有太多parser或者不需要频繁添加parser的情况下，也是没有太大问题的。
+
+#### 总结反思
+简单工厂的代码实现中，有多出if分支，有违背开发原则，但在没有太多parser或者不需要频繁添加parser的情况下，也是没有太大问题的。
