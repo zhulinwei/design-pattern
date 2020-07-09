@@ -19,6 +19,7 @@ TODO
 #### 示例
 Java Sample
 
+<details>
 ```java
 public class RuleConfigSource {
   public RuleConfig load(String path, String fileExtension) {
@@ -46,6 +47,7 @@ public class RuleConfigParserFactory {
   }
 }
 ```
+</details>
 
 Go Sample
 ```golang
@@ -137,6 +139,7 @@ public class RuleConfigParserFactory {
 
 
 Go Sample
+<details>
 ```golang
 type RuleConfigParserFactory struct {
    cacheParser map[string]IRuleConfigParser
@@ -158,6 +161,7 @@ func NewRuleConfigParserFactory() *RuleConfigParserFactory {
    return factory
 }
 ```
+</details>
 
 #### 总结反思
 简单工厂的代码实现中，有多出if分支，有违背开发原则，但在没有太多parser或者不需要频繁添加parser的情况下，也是没有太大问题的。
