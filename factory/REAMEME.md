@@ -60,19 +60,13 @@ type JsonRuleConfigParser struct{}
 
 func (JsonRuleConfigParser) parse(string) RuleConfig { return RuleConfig{} }
 
-func NewJsonRuleConfigParser() IRuleConfigParser { return JsonRuleConfigParser{} }
-
 type XmlRuleConfigParser struct{}
 
 func (XmlRuleConfigParser) parse(string) RuleConfig { return RuleConfig{} }
 
-func NewXmlRuleConfigParser() IRuleConfigParser { return XmlRuleConfigParser{} }
-
 type TxtRuleConfigParser struct{}
 
 func (TxtRuleConfigParser) parse(string) RuleConfig { return RuleConfig{} }
-
-func NewTxtRuleConfigParser() IRuleConfigParser { return TxtRuleConfigParser{} }
 
 // 工厂角色
 type RuleConfigParserFactory struct{}
@@ -80,11 +74,11 @@ type RuleConfigParserFactory struct{}
 func (RuleConfigParserFactory) createParser(configFormat string) IRuleConfigParser {
   var parser IRuleConfigParser
   if "json" == strings.ToLower(configFormat) {
-    parser = NewJsonRuleConfigParser()
+    parser = new(JsonRuleConfigParser)
   } else if "xml" == strings.ToLower(configFormat) {
-    parser = NewXmlRuleConfigParser()
+    parser = new(XmlRuleConfigParser)
   } else if "txt" == strings.ToLower(configFormat) {
-    parser = NewTxtRuleConfigParser()
+    parser = new(TxtRuleConfigParser)
   }
   return parser
 }
