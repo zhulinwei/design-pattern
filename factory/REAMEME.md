@@ -26,6 +26,7 @@
         - [Java Sample](#java-sample-3)
         - [Go Sample](#go-sample-3)
       - [类图](#类图-2)
+  - [总结反思](#总结反思-2)
 
 ## 概念
 工厂模式是最常用的设计模式之一，它属于创建型模式，提供了一种创建对象的最佳方式。
@@ -204,6 +205,8 @@ func NewRuleConfigParserFactory() *RuleConfigParserFactory {
 #### 总结反思
 简单工厂的代码实现中，有多出if分支，有违背开发原则，但在没有太多parser或者不需要频繁添加parser的情况下，也是没有太大问题的。
 
+----
+
 ### 工厂方法
 
 对于上述的例子中，如果我们非得要将if分支逻辑去掉，可以考虑使用工厂方法，利用多态的实现思路进行重构。
@@ -366,6 +369,8 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
 从上述的例子中我们可以总结出工厂方法使用过程中的一些优缺点：
 + 优点：当我们需要添加新的角色时只需要创建新的parser类和parser factory类，并且在RuleConfigParserFactoryMap类中将新的parser factory对象添加到cache对象中即可，代码改动较少，基本符合开闭原则；
 + 缺点：工厂模式需要额外创建诸多的Factory类，增加代码的复杂性，且此处的每个工厂类只是做简单的创建工作，功能单薄，也显得多余；
+
+----
 
 ### 抽象工厂
 它的应用场景比较特殊，没有前面两种常用，主要是提供一个超级工厂来创建其他工厂；
@@ -563,3 +568,11 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
 
 #### 类图
 ![](factory_3.jpg)
+
+----
+
+## 总结反思
+
++ 如果存在多个对象且每个对象的创建逻辑都比较简单时推荐使用简单共产模式，将多个对象的创建逻辑放入一个工厂类中；
++ 如果每个对象的创建逻辑都比较负责，推荐使用工厂方法模式以避免设计出过于庞大的简单工厂类；
++ 如果创建对象的逻辑不复杂，可以考虑通过直接new来创建对象，不需要工厂模式；
