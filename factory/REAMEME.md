@@ -21,6 +21,8 @@ TODO
 #### 示例
 Java Sample
 
+<details>
+
 ```java
 public class RuleConfigSource {
   public RuleConfig load(String path, String fileExtension) {
@@ -48,8 +50,12 @@ public class RuleConfigParserFactory {
   }
 }
 ```
+</details>
 
 Go Sample
+
+<details>
+
 ```golang
 // 共同的接口
 type IRuleConfigParser interface {
@@ -106,10 +112,11 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
 }
 ```
 
+</details>
+
 #### 类图
 
-从上述的Sample中我们可以观察到几个关键对象：抽象产品接口（IRuleConfigParser）、具体产品角色（JsonRuleConfigParser）和工厂角色（RuleConfigParserFactory），它们是简易工厂的重要组成部分。
-
+从上述的Sample中我们可以观察到几个关键对象：抽象产品接口（IRuleConfigParser）、具体产品角色（JsonRuleConfigParser）和工厂角色（RuleConfigParserFactory），它们是简易工厂的重要组成部分，类如如下：
 ![](factory_1.jpg)
 
 #### 优化改进
@@ -117,6 +124,8 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
 另外我们可以发现上述的Sample其实存在优化的空间，我们每次调用RuleConfigParserFactory的createParser时都要创建一个新的parser，实际上parser可以复用，为了节省内存和对象的时间，我们可以先将parser创建然后缓存起来，当调用createParser的时候直接从缓存中取出parser对象使用。
 
 Java Sample
+
+<details>
 
 ```java
 public class RuleConfigParserFactory {
@@ -137,7 +146,12 @@ public class RuleConfigParserFactory {
 }
 ```
 
+</details>
+
 Go Sample
+
+<details>
+
 ```golang
 type RuleConfigParserFactory struct {
    cacheParser map[string]IRuleConfigParser
@@ -159,6 +173,7 @@ func NewRuleConfigParserFactory() *RuleConfigParserFactory {
    return factory
 }
 ```
+</details>
 
 #### 总结反思
 简单工厂的代码实现中，有多出if分支，有违背开发原则，但在没有太多parser或者不需要频繁添加parser的情况下，也是没有太大问题的。
@@ -173,6 +188,8 @@ func NewRuleConfigParserFactory() *RuleConfigParserFactory {
 #### 示例
 
 Java Sample
+
+<details>
 
 ```java
 public interface IRuleConfigParserFactory {
@@ -230,8 +247,12 @@ public class RuleConfigSource {
     }
 }
 ```
+</details>
 
 Go Sample
+
+<details>
+
 ```golang
 // 自定义结构体
 type RuleConfig struct{}
@@ -307,6 +328,8 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
 }
 ```
 
+</details>
+
 #### 类图
 从上述的Sample中我们可以观察四个关键对象：抽象产品接口（IRuleConfigParser）、具体产品角色（JsonRuleConfigParser）、抽象工厂接口（IRuleConfigParserFactory）、具体工厂角色（JsonRuleConfigParserFactory）
 
@@ -326,6 +349,9 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
 #### 示例
 
 Java Sample
+
+<details>
+
 ```java
 public interface IConfigParserFactory {
     IRuleConfigParser createRuleParser();
@@ -393,7 +419,12 @@ public class RuleConfigSource {
 }
 ```
 
+</details>
+
 Go Sample
+
+<details>
+
 ```golang
 // 自定义结构体
 type RuleConfig struct{}
@@ -501,6 +532,8 @@ func (RuleConfigSource) load(path, fileExtension string) RuleConfig {
    return ruleConfig
 }
 ```
+
+</details>
 
 #### 类图
 ![](factory_3.jpg)
