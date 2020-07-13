@@ -5,16 +5,19 @@
   - [使用场景](#使用场景)
   - [实现方式](#实现方式)
     - [饿汉式](#饿汉式)
-      - [Java Sample](#java-sample)
-      - [Go Samle](#go-samle)
+      - [示例](#示例)
+        - [Java Sample](#java-sample)
+        - [Go Samle](#go-samle)
       - [总结反思](#总结反思)
     - [懒汉式](#懒汉式)
-      - [Java Sample](#java-sample-1)
-      - [Go Sample](#go-sample)
+      - [示例](#示例-1)
+        - [Java Sample](#java-sample-1)
+        - [Go Sample](#go-sample)
       - [总结反思](#总结反思-1)
     - [双重检测](#双重检测)
-      - [Java Sample](#java-sample-2)
-      - [Go Sample](#go-sample-1)
+      - [示例](#示例-2)
+        - [Java Sample](#java-sample-2)
+        - [Go Sample](#go-sample-1)
       - [总结反思](#总结反思-2)
   - [类图](#类图)
   - [总结反思](#总结反思-3)
@@ -32,7 +35,9 @@
 ### 饿汉式
 在类加载期间即完成实例的初始化，优点是线程安全，缺点是不支持延迟加载；
 
-#### Java Sample
+#### 示例
+
+##### Java Sample
 
 <details>
 
@@ -48,7 +53,7 @@ public class Singletion {
 
 </details>
 
-#### Go Samle
+##### Go Samle
 
 <details>
 
@@ -76,7 +81,9 @@ func init() {
 ### 懒汉式
 就是在创建对象时比较懒，只有在需要时才会创建对象。相比饿汉式支持延迟加载，但他的实现方式会导致频繁地加锁、解锁，从而因并发度低产生性能问题；
 
-#### Java Sample
+#### 示例
+
+##### Java Sample
 <details>
 
 ```java
@@ -94,7 +101,7 @@ public class Singletion {
 
 </details>
 
-#### Go Sample
+##### Go Sample
 
 <details>
 
@@ -137,7 +144,8 @@ func GetSingle() *Singletion {
 ### 双重检测
 即常说的Doublue checked，饿汉式不支持延迟加载，懒汉式有性能问题，不支持高并发，而双重检测是对他们一种优化：先判断对象是否已经被初始化，再决定要不要加锁。
 
-#### Java Sample
+#### 示例
+##### Java Sample
 
 <details>
 
@@ -159,7 +167,7 @@ public class Singletion {
 ```
 </details>
 
-#### Go Sample
+##### Go Sample
 
 <details>
 
