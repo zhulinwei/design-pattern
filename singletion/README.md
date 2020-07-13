@@ -5,10 +5,19 @@
   - [使用场景](#使用场景)
   - [实现方式](#实现方式)
     - [饿汉式](#饿汉式)
+      - [Java Sample](#java-sample)
+      - [Go Samle](#go-samle)
+      - [总结反思](#总结反思)
     - [懒汉式](#懒汉式)
+      - [Java Sample](#java-sample-1)
+      - [Go Sample](#go-sample)
+      - [总结反思](#总结反思-1)
     - [双重检测](#双重检测)
+      - [Java Sample](#java-sample-2)
+      - [Go Sample](#go-sample-1)
+      - [总结反思](#总结反思-2)
   - [类图](#类图)
-  - [总结反思](#总结反思)
+  - [总结反思](#总结反思-3)
 
 ## 概念
 一个类只允许创建唯一一个对象/实例
@@ -23,7 +32,10 @@
 ### 饿汉式
 在类加载期间即完成实例的初始化，优点是线程安全，缺点是不支持延迟加载；
 
-Java Sample
+#### Java Sample
+
+<details>
+
 ```java
 public class Singletion {
     pirvate static Singletion single = new Singletion();
@@ -34,7 +46,12 @@ public class Singletion {
 }
 ```
 
-Go Samle
+</details>
+
+#### Go Samle
+
+<details>
+
 ```golang
 type Singletion struct {}
 
@@ -48,6 +65,9 @@ func init() {
     single = new(Singletion)
 }
 ```
+</details>
+
+#### 总结反思
 
 反方观点：不支持延迟加载，如果实例占用资源多（比如内存）或者耗时长（需要加载各种配置文件呢），提前初始化是一种资源的浪费，最好的做法是等到要用的时候再去初始化；
 
@@ -56,7 +76,9 @@ func init() {
 ### 懒汉式
 就是在创建对象时比较懒，只有在需要时才会创建对象。相比饿汉式支持延迟加载，但他的实现方式会导致频繁地加锁、解锁，从而因并发度低产生性能问题；
 
-Java Sample
+#### Java Sample
+<details>
+
 ```java
 public class Singletion {
     private static Singletion single = null
@@ -70,7 +92,12 @@ public class Singletion {
 }
 ```
 
-Go Sample
+</details>
+
+#### Go Sample
+
+<details>
+
 ```golang
 type Singletion struct {}
 
@@ -86,6 +113,10 @@ func GetSingle() *Singletion {
     return single
 }
 ```
+
+</details>
+
+#### 总结反思
 
 缺点：在Java Sample中我们可以看到synchronzed这把大锁，它的存在会导致函数的并发度很低，如果这个函数被频繁使用，那么频繁的加锁、解锁就会导致性能问题；
 
@@ -106,7 +137,10 @@ func GetSingle() *Singletion {
 ### 双重检测
 即常说的Doublue checked，饿汉式不支持延迟加载，懒汉式有性能问题，不支持高并发，而双重检测是对他们一种优化：先判断对象是否已经被初始化，再决定要不要加锁。
 
-Java Sample
+#### Java Sample
+
+<details>
+
 ```java
 public class Singletion {
     private volatile static Singletion single = null
@@ -123,8 +157,12 @@ public class Singletion {
     }
 }
 ```
+</details>
 
-Go Sample
+#### Go Sample
+
+<details>
+
 ```golang
 type Singletion struct {}
 
@@ -142,12 +180,16 @@ func GetSingle() *Singletion {
     return single
 }
 ```
+</details>
 
+#### 总结反思
 第一个检查是为了避免频繁加锁问题：前面的请求创建好实例后，后面的请求就不需要再加锁处理了；
 
 第二个检查是为了处理锁竞争的情况：如果来个两个线程同时发现single为空，于是开始抢锁，由于前面抢锁成功的线程已经初始化完成示例，所以后面获得锁的线程在判断single不为空后就可以退出了；
 
 补充：在Golang中，sync模块的Once方法已经实现了双重检测的机制，因此我们可以直接调用它：
+
+<details>
 
 ```goalng
 type Singletion struct {}
@@ -163,7 +205,12 @@ func GetSingle() *Singletion {
 }
 ```
 
+</details>
+
 我们来看一下Once的源码：
+
+<details>
+
 ```golang
 type Once struct {
     m    Mutex
@@ -183,6 +230,9 @@ func (o *Once) Do(f func()) {
     }
 }
 ```
+
+</details>
+
 可以发现Once的做法和语义和双重检测一致。
 
 ## 类图
