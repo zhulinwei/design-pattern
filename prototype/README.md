@@ -1,6 +1,15 @@
 # Prototype Pattern
 原型模式
 
+- [Prototype Pattern](#prototype-pattern)
+  - [概念](#概念)
+  - [使用场景](#使用场景)
+  - [实现方式](#实现方式)
+    - [Java Sample](#java-sample)
+    - [Go Sample](#go-sample)
+  - [类图](#类图)
+  - [总结反思](#总结反思)
+
 ## 概念
 利用已有的对象/原型并通过拷贝的形式来创建新新的对象
 
