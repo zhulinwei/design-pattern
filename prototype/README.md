@@ -6,7 +6,7 @@
   - [使用场景](#使用场景)
   - [实现方式](#实现方式)
     - [Java Sample](#java-sample)
-    - [Go Sample](#go-sample)
+    - [Golang Sample](#golang-sample)
   - [类图](#类图)
   - [总结反思](#总结反思)
 
@@ -33,7 +33,7 @@ public class Prototype extends IPrototype {
 }
 ```
 
-### Go Sample
+### Golang Sample
 
 ```golang
 type IPrototype interface {

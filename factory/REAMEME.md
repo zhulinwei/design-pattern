@@ -8,23 +8,23 @@
       - [概念](#概念-1)
       - [示例](#示例)
         - [Java Sample](#java-sample)
-        - [Go Sample](#go-sample)
+        - [Golang Sample](#golang-sample)
       - [类图](#类图)
       - [优化改进](#优化改进)
         - [Java Sample](#java-sample-1)
-        - [Go Sample](#go-sample-1)
+        - [Golang Sample](#golang-sample-1)
       - [总结反思](#总结反思)
     - [工厂方法](#工厂方法)
       - [概念](#概念-2)
       - [示例](#示例-1)
         - [Java Sample](#java-sample-2)
-        - [Go Sample](#go-sample-2)
+        - [Golang Sample](#golang-sample-2)
       - [类图](#类图-1)
       - [总结反思](#总结反思-1)
     - [抽象工厂](#抽象工厂)
       - [示例](#示例-2)
         - [Java Sample](#java-sample-3)
-        - [Go Sample](#go-sample-3)
+        - [Golang Sample](#golang-sample-3)
       - [类图](#类图-2)
   - [总结反思](#总结反思-2)
 
@@ -79,7 +79,7 @@ public class RuleConfigParserFactory {
 ```
 </details>
 
-##### Go Sample
+##### Golang Sample
 
 <details>
 
@@ -175,7 +175,7 @@ public class RuleConfigParserFactory {
 
 </details>
 
-##### Go Sample
+##### Golang Sample
 
 <details>
 
@@ -278,7 +278,7 @@ public class RuleConfigSource {
 ```
 </details>
 
-##### Go Sample
+##### Golang Sample
 
 <details>
 
@@ -452,7 +452,7 @@ public class RuleConfigSource {
 
 </details>
 
-##### Go Sample
+##### Golang Sample
 
 <details>
 

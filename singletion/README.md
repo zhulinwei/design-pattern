@@ -7,17 +7,17 @@
     - [饿汉式](#饿汉式)
       - [示例](#示例)
         - [Java Sample](#java-sample)
-        - [Go Samle](#go-samle)
+        - [Golang Samle](#golang-samle)
       - [总结反思](#总结反思)
     - [懒汉式](#懒汉式)
       - [示例](#示例-1)
         - [Java Sample](#java-sample-1)
-        - [Go Sample](#go-sample)
+        - [Golang Sample](#golang-sample)
       - [总结反思](#总结反思-1)
     - [双重检测](#双重检测)
       - [示例](#示例-2)
         - [Java Sample](#java-sample-2)
-        - [Go Sample](#go-sample-1)
+        - [Golang Sample](#golang-sample-1)
       - [总结反思](#总结反思-2)
   - [类图](#类图)
   - [总结反思](#总结反思-3)
@@ -53,7 +53,7 @@ public class Singletion {
 
 </details>
 
-##### Go Samle
+##### Golang Samle
 
 <details>
 
@@ -101,7 +101,7 @@ public class Singletion {
 
 </details>
 
-##### Go Sample
+##### Golang Sample
 
 <details>
 
@@ -167,7 +167,7 @@ public class Singletion {
 ```
 </details>
 
-##### Go Sample
+##### Golang Sample
 
 <details>
 
