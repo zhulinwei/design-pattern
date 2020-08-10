@@ -6,7 +6,7 @@
   - [使用场景](#使用场景)
   - [实现方式](#实现方式)
     - [Java Sample](#java-sample)
-    - [Go Sample](#go-sample)
+    - [Golang Sample](#golang-sample)
   - [类图](#类图)
   - [反思总结](#反思总结)
 
@@ -93,7 +93,7 @@ public class Director {
 }
 ```
 
-### Go Sample
+### Golang Sample
 
 ```golang
 // 产品角色
