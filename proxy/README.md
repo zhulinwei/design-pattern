@@ -1,6 +1,19 @@
 # Proxy Pattern
 代理模式
 
+- [Proxy Pattern](#proxy-pattern)
+  - [概念](#概念)
+  - [使用场景](#使用场景)
+  - [实现方式](#实现方式)
+    - [静态代理](#静态代理)
+      - [Java Sample](#java-sample)
+      - [Golang Sample](#golang-sample)
+      - [总结反思](#总结反思)
+    - [动态代理](#动态代理)
+      - [Java Sample](#java-sample-1)
+  - [类图](#类图)
+  - [总结反思](#总结反思-1)
+
 ## 概念
 在不改变原始类代码的情况下，通过引入代理类来给原始类提供附加功能。
 
