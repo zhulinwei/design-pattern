@@ -16,6 +16,8 @@
 
 ### Java Sample
 
+<details>
+
 ```java
 public interface IRoundPeg {
   public double getRadius()
@@ -95,7 +97,11 @@ hole.fits(pegAdapter)
 
 ```
 
+</details>
+
 ## Golang Sample
+
+<details>
 
 ```golang
 type IRoundPeg interface {
@@ -156,6 +162,8 @@ func main() {
   fmt.Println(hole.fits(squarePeg))
 }
 ```
+
+</details>
 
 ## 类图
 ![](adapter.png)
