@@ -1,6 +1,15 @@
 # Decorator Pattern
 装饰器模式
 
+- [Decorator Pattern](#decorator-pattern)
+  - [概念](#概念)
+  - [使用场景](#使用场景)
+  - [实现方式](#实现方式)
+    - [Java Sample](#java-sample)
+    - [Golang Sample](#golang-sample)
+  - [类图](#类图)
+  - [总结反思](#总结反思)
+
 ## 概念
 允许向一个现有的对象添加新的功能，同时又不改变其结构，通常我们会通过将对象放入包含封装有特殊行为的对象中来为原对象绑定新的行为。
 
