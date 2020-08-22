@@ -1,5 +1,14 @@
 # Facade Pattern
 外观模式
+- [Facade Pattern](#facade-pattern)
+  - [概念](#概念)
+  - [使用场景](#使用场景)
+  - [实现方式](#实现方式)
+    - [Java Sample](#java-sample)
+    - [Golang Sample](#golang-sample)
+  - [类图](#类图)
+  - [总结反思](#总结反思)
+
 ## 概念
 为子系统提供一组统一的接口，通过定义一组高层接口让子系统更易用
 
